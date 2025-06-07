@@ -13,19 +13,13 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from duckduckgo_search import DDGS
 from urllib.parse import urlparse
-
-
-
-OPENAI_API_KEY = 
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-S3_BUCKET_NAME=
+load_dotenv()
 
 # Set up Boto3 S3 client
 s3_client = boto3.client(
     "s3",
-    aws_access_key_id=AWS_ACCESS_KEY_ID,
-    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+    aws_access_key_id=os.getenv(AWS_ACCESS_KEY_ID),
+    aws_secret_access_key=os.getenv(AWS_SECRET_ACCESS_KEY),
     region_name="ap-south-1" 
 )
 
